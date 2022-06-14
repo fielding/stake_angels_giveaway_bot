@@ -49,7 +49,8 @@ sponsored by Stake.com
   end
 
   defp execute_command(message = %{ command: "end_roll_call" }) do
-    footer = """💥 Win more on <a href="https://stake.com">Stake.com</a>💥
+    footer = """
+    💥 Win more on <a href="https://stake.com">Stake.com</a>💥
     """
     RollCall.close_existing_roll_calls(message)
     {:ok, footer}
