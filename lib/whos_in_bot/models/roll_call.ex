@@ -108,10 +108,13 @@ defmodule WhosInBot.Models.RollCall do
     header = """
     💥 Win more on <a href="https://stake.com">Stake.com</a>💥
     """
-    output = case has_title?(roll_call) do
-      true -> [header, roll_call.title]
-      _ -> [header]
-    end
+    # output = case has_title?(roll_call) do
+    #   true -> [header, roll_call.title]
+    #   _ -> [header]
+    # end
+
+
+    output = [header]
 
     in_list = in_response_list(roll_call)
     output = case String.length(in_list) > 0 do

@@ -77,39 +77,6 @@ defmodule WhosInBot.MessageHandler do
     {:ok, RollCall.whos_in_list(message.roll_call)}
   end
 
-  defp execute_command(message = %{ command: "set_title" }) do
-    title = Enum.join(message.params, " ")
-    RollCall.set_title(message.roll_call, title)
-    {:ok, "Roll call title set"}
-  end
-
-  defp execute_command(%{ command: "set_in_for", params: [] }) do
-    {:ok, "Please provide the persons first name.\n"}
-  end
-
-  defp execute_command(message = %{ command: "set_in_for" }) do
-    set_state_for(message, "in")
-    {:ok, RollCall.whos_in_list(message.roll_call)}
-  end
-
-  defp execute_command(%{ command: "set_out_for", params: [] }) do
-    {:ok, "Please provide the persons first name.\n"}
-  end
-
-  defp execute_command(message = %{ command: "set_out_for" }) do
-    set_state_for(message, "out")
-    {:ok, RollCall.whos_in_list(message.roll_call)}
-  end
-
-  defp execute_command(%{ command: "set_maybe_for", params: [] }) do
-    {:ok, "Please provide the persons first name.\n"}
-  end
-
-  defp execute_command(message = %{ command: "set_maybe_for" }) do
-    set_state_for(message, "maybe")
-    {:ok, RollCall.whos_in_list(message.roll_call)}
-  end
-
   defp execute_command(message = %{ command: "shh" }) do
     changeset = RollCall.changeset(message.roll_call, %{ quiet: true })
     case Repo.update(changeset) do
