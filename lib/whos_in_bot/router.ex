@@ -36,7 +36,7 @@ defmodule WhosInBot.Router do
   end
 
   defp send_chat_response(%{ chat: %{ id: chat_id } }, response) when response != nil do
-    Nadia.send_message(chat_id, response)
+    Nadia.send_message(chat_id, response, parse_mode: "HTML", disable_web_page_preview: true)
   end
   defp send_chat_response(_, _), do: nil
 
