@@ -9,4 +9,4 @@ config :whos_in_bot,
       ssl: System.get_env("DB_SSL", "false") |> String.to_existing_atom(),
       pool_size: 18
 
-import_config "#{Mix.env}.exs"
+# import_config "#{Mix.env}.exs"
