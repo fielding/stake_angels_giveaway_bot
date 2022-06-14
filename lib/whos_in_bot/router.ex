@@ -11,7 +11,7 @@ defmodule WhosInBot.Router do
   plug :dispatch
 
   get "/" do
-    conn |> send_resp(200, "WhosInBot")
+    conn |> send_resp(200, "Stake Angels Giveaway Bot")
   end
 
   get "/stats" do
