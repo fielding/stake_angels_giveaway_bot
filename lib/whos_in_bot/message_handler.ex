@@ -19,8 +19,21 @@ defmodule WhosInBot.MessageHandler do
     star = "⭐️"
     gem = "💎"
     gems = String.duplicate(gem, 2)
-    stars = String.duplicate(star, 11)
-    header = stars <> "\n" <> gems <> " Stake Angels Giveaways " <> gems <>  "\n" <> stars
+    stars = String.duplicate(star, 12)
+    bangs = "💥💥"
+sponsored by Stake.com
+    header = """#{stars}
+
+    #{gems} Stake Angels Giveaways #{gems}
+
+    #{stars}
+
+    #{bangs} COINS DROP #{bangs}
+
+
+    sponsored by <a href="https://stake.com">Stake.com</a>
+    """
+
 
     RollCall.close_existing_roll_calls(message)
     RollCall.create_roll_call(message)
@@ -36,8 +49,10 @@ defmodule WhosInBot.MessageHandler do
   end
 
   defp execute_command(message = %{ command: "end_roll_call" }) do
+    footer = """💥 Win more on <a href="https://stake.com">Stake.com</a>💥
+    """
     RollCall.close_existing_roll_calls(message)
-    {:ok, "Roll call ended"}
+    {:ok, footer}
   end
 
   defp execute_command(message = %{ command: "in" }) do
