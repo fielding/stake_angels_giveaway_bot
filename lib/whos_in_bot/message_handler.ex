@@ -28,7 +28,7 @@ defmodule WhosInBot.MessageHandler do
 
     #{stars}
 
-    #{bangs} COINS DROP #{bangs}
+           #{bangs} COINS DROP #{bangs}
 
 
     sponsored by <a href="https://stake.com">Stake.com</a>
