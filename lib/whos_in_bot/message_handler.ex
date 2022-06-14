@@ -30,6 +30,8 @@ defmodule WhosInBot.MessageHandler do
 
             #{bangs} COINS DROP #{bangs}
             sponsored by <a href="https://stake.com">Stake.com</a>
+
+        type /in {stake username} to join
     """
 
 
@@ -41,7 +43,7 @@ defmodule WhosInBot.MessageHandler do
 
   defp execute_command(%{ command: command, roll_call: nil }) do
     case is_known_command(command) do
-      true -> {:ok, "No roll call in progress!!! g dawg!"}
+      true -> {:ok, "No roll call in progress!!! Maybe later 😊"}
       false -> {:error, "Unknown command"}
     end
   end
@@ -49,6 +51,8 @@ defmodule WhosInBot.MessageHandler do
   defp execute_command(message = %{ command: "end_roll_call" }) do
     footer = """
     💥 Win more on <a href="https://stake.com">Stake.com</a>💥
+
+    Roll call has ended!
     """
     RollCall.close_existing_roll_calls(message)
     {:ok, footer}
