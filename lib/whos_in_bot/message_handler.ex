@@ -16,11 +16,11 @@ defmodule WhosInBot.MessageHandler do
   end
 
   defp execute_command(message = %{ command: "start_roll_call" }) do
-    star = ":star: "
-    gem = ":gem: "
+    star = "⭐️"
+    gem = "💎"
     gems = String.duplicate(gem, 2)
     stars = String.duplicate(star, 11)
-    header = stars <> "\n" <> gems <> "Stake Angels Giveaways " <> gems <>  "\n" <> stars
+    header = stars <> "\n" <> gems <> " Stake Angels Giveaways " <> gems <>  "\n" <> stars
 
     RollCall.close_existing_roll_calls(message)
     RollCall.create_roll_call(message)
