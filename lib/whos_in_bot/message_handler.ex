@@ -22,7 +22,8 @@ defmodule WhosInBot.MessageHandler do
     stars = String.duplicate(star, 12)
     bangs = "💥💥"
 sponsored by Stake.com
-    header = """#{stars}
+    header = """
+    #{stars}
 
     #{gems} Stake Angels Giveaways #{gems}
 
