@@ -15,15 +15,23 @@ defmodule WhosInBot.MessageHandler do
     {:error, "Not a bot command"}
   end
 
+  star = ":star: "
+  gem = ":gem: "
+  gems = String.duplicate(gem, 2);
+  stars = String.duplicate(star, 11);
+
+  header = stars <> "\n" <> gems <> "Stake Angels Giveaways" <> gems <>  "\n" <> stars
+
+
   defp execute_command(message = %{ command: "start_roll_call" }) do
     RollCall.close_existing_roll_calls(message)
     RollCall.create_roll_call(message)
-    {:ok, "Roll call started"}
+    {:ok, header}
   end
 
   defp execute_command(%{ command: command, roll_call: nil }) do
     case is_known_command(command) do
-      true -> {:ok, "No roll call in progress"}
+      true -> {:ok, "No roll call in progress!!! g dawg!"}
       false -> {:error, "Unknown command"}
     end
   end
